@@ -44,6 +44,32 @@ di-deploy sebagai New version. Tanpa itu, halaman formulir mandiri tetap menampi
 Bila nama `bps7316.github.io` tidak dipakai (misalnya memakai repository bernama `pst`), alamatnya menjadi
 `https://bps7316.github.io/pst/bukutamu/` dan isian di Pengaturan menjadi `https://bps7316.github.io/pst/`.
 
+## Bila folder tidak bisa diunggah (cara cadangan, tanpa folder)
+Unggah folder lewat browser kadang gagal. Kit ini tetap bekerja tanpa kelima subfolder:
+1. Unggah hanya berkas biasa di akar repository: `index.html`, `404.html`, `pengaturan.js`, `pst.js`.
+2. Alamat `/bukutamu/`, `/permintaan-data/`, `/konsultasi-desil/`, `/pengaduan/`, dan `/cek-status/` otomatis dilayani
+   oleh `404.html`, yang membaca nama alamat lalu memuat formulir yang sesuai. Alamat yang tidak dikenal menampilkan
+   "Halaman tidak ditemukan".
+3. Catatan teknis: GitHub Pages menandai alamat-alamat itu sebagai "404" di balik layar. Halaman tetap tampil normal di
+   browser dan di QR. Yang mungkin tidak muncul hanya pratinjau tautan (gambar/judul) saat dibagikan di beberapa aplikasi
+   chat. Kalau pratinjau itu penting, unggah kelima subfolder juga (folder yang ada didahulukan dari 404.html).
+4. Cara cadangan ini berlaku untuk repository bernama `NAMA.github.io`. Untuk repository proyek (misalnya `pst`),
+   gunakan subfolder.
+
+## Ketahanan terhadap galat sementara Google
+Mulai versi ini, PST mengirim sinyal "siap" ke halaman pembungkus. Bila sinyal tidak datang (misalnya Google
+menampilkan halaman *error pada server ... INTERNAL*), halaman pembungkus **mencoba memuat ulang otomatis sampai 2 kali**,
+lalu menampilkan pesan "Aplikasi belum bisa dimuat" dengan tombol **Muat ulang** dan tautan **buka langsung**.
+
+**Urutan pemasangan (penting):**
+1. Pasang pembaruan PST yang memuat sinyal "siap" (berkas `Shell.html` terbaru), lalu *Deploy New version*.
+2. **Baru** unggah `pst.js` yang baru ke repository GitHub (menimpa berkas lama).
+Bila `pst.js` baru dipasang sebelum PST diperbarui, pembungkus menganggap aplikasi gagal dan memuat ulang terus. Untuk
+mematikan fitur ini sementara, tambahkan satu baris di `pengaturan.js`: `window.PST_SINYAL = false;`
+
+Waktu tunggu bawaan: 15 detik setelah bingkai selesai dimuat dan 40 detik per percobaan. Dapat diubah di `pengaturan.js`
+dengan `window.PST_TUNGGU_MUAT = 20000;` dan `window.PST_TUNGGU_MAKS = 50000;`.
+
 ## Bila alamat /exec PST berubah
 Edit **hanya** `pengaturan.js` (ikon pensil di GitHub), ganti nilai `PST_EXEC`, lalu Commit. Alamat harus berbentuk
 `https://script.google.com/macros/s/XXXXXXXX/exec`. Jika bentuknya salah, halaman menampilkan pesan, bukan layar kosong.

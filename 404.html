@@ -1,5 +1,27 @@
 <!DOCTYPE html>
-<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Halaman tidak ditemukan &ndash; BPS Kabupaten Enrekang</title>
-<style>body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;font-family:system-ui,Arial,sans-serif;background:#f4f6fa;color:#1d2433;padding:20px}a{color:#1F3864;font-weight:600}</style></head>
-<body><div><h1 style="font-size:22px">Halaman tidak ditemukan</h1><p>Periksa kembali alamatnya, atau buka halaman utama <a href="/">Pelayanan Statistik Terpadu BPS Kabupaten Enrekang</a>.</p></div></body></html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pelayanan Statistik Terpadu &ndash; BPS Kabupaten Enrekang</title>
+<meta name="theme-color" content="#1F3864">
+<style>
+html,body{height:100%;margin:0;background:#1F3864;color:#fff;font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+#app{position:fixed;inset:0;width:100%;height:100%;height:100dvh;border:0;background:transparent}
+#muat{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;text-align:center;padding:20px}
+#muat a{color:#fff}
+#tidakAda{position:fixed;inset:0;display:none;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:20px;background:#f4f6fa;color:#1d2433}
+#tidakAda a{color:#1F3864;font-weight:600}
+</style>
+</head>
+<body>
+<!-- Halaman ini juga melayani alamat /bukutamu/, /permintaan-data/, /konsultasi-desil/, /pengaduan/, /cek-status/
+     (GitHub Pages menampilkan 404.html untuk alamat yang foldernya tidak ada). -->
+<div id="muat"><div id="teksMuat">Memuat Pelayanan Statistik Terpadu&hellip;</div><div style="font-size:13px;opacity:.85">Jika tidak tampil, <a id="langsung" href="#" target="_top">buka langsung</a>.</div></div>
+<iframe id="app" title="Pelayanan Statistik Terpadu BPS Kabupaten Enrekang" allow="fullscreen; clipboard-write"></iframe>
+<div id="tidakAda"><h1 style="font-size:22px">Halaman tidak ditemukan</h1><p>Periksa kembali alamatnya, atau buka halaman utama <a href="/">Pelayanan Statistik Terpadu BPS Kabupaten Enrekang</a>.</p></div>
+<noscript><p style="position:fixed;inset:0;background:#1F3864;margin:0;padding:24px">Halaman ini memerlukan JavaScript. Aktifkan JavaScript di browser Anda.</p></noscript>
+<script src="/pengaturan.js"></script>
+<script src="/pst.js"></script>
+</body>
+</html>
