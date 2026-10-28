@@ -26,6 +26,8 @@ Halaman utama juga meneruskan menu tertentu: `https://bps7316.github.io/?page=ga
     pengaturan.js                   <-- SATU-SATUNYA berkas berisi alamat /exec PST
     pst.js                          pemuat aplikasi (tidak perlu diubah)
     404.html                        halaman bila alamat salah
+    favicon.ico, favicon-16x16.png, favicon-32x32.png, apple-touch-icon.png, icon-512.png
+                                    ikon PST (tab browser, layar utama HP, dan pratinjau tautan)
 
 ## Prasyarat
 Paket PST terbaru (yang memuat *mode formulir tunggal* dan isian **Alamat Halaman Pembungkus**) sudah dipasang dan
@@ -55,6 +57,12 @@ Unggah folder lewat browser kadang gagal. Kit ini tetap bekerja tanpa kelima sub
    chat. Kalau pratinjau itu penting, unggah kelima subfolder juga (folder yang ada didahulukan dari 404.html).
 4. Cara cadangan ini berlaku untuk repository bernama `NAMA.github.io`. Untuk repository proyek (misalnya `pst`),
    gunakan subfolder.
+
+## Ikon (favicon) PST
+Ikon dibuat dari logo PST (garisnya ditebalkan pada ukuran kecil agar terbaca di tab). Unggah kelima berkas ikon ke akar repository bersama halaman yang diperbarui. `favicon-32x32.png` juga dipakai oleh aplikasi PST
+(alamatnya tertulis di `Code.js` sebagai `FAVICON_URL`), sehingga **ikon di tab aplikasi baru muncul setelah berkas itu ada di GitHub**.
+Berkas `icon-512.png` dipakai sebagai gambar pratinjau saat tautan dibagikan di WhatsApp. Peramban menyimpan ikon lama cukup lama:
+bila ikon belum berubah, tutup tab, atau buka dengan Ctrl+F5.
 
 ## Ketahanan terhadap galat sementara Google
 Mulai versi ini, PST mengirim sinyal "siap" ke halaman pembungkus. Bila sinyal tidak datang (misalnya Google
